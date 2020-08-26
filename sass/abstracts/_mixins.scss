@@ -15,3 +15,50 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px      Phone
+600px - 900px  Tablet potrait
+900px - 1200px Tablet landscape
+1800px  >      Large Desktop
+
+
+Breakpoints choice:
+- phone
+- tab-potrait
+- tab-landscape
+-large-desktop
+
+
+1em = 16px
+37.5em = 600px
+56.25em = 900px
+75em = 1200px
+112.5em = 1800px
+
+  ORDER: base + typography > general layout + grid > page layout + components
+
+  larger breakpoints comes first in the declearation because of cascade
+  
+*/
+
+@mixin respond($breakpoint) {
+  @if($breakpoint == phone) {
+    @media (max-width: 37.5em) {@content}  
+  }
+
+  @if($breakpoint == tab-potrait) {
+    @media (max-width: 56.25em) {@content}
+  }
+
+  @if($breakpoint == tab-landscape) {
+    @media (max-width: 75em) {@content}
+  }
+
+  @if($breakpoint == large-desktop) {
+    @media (min-width: 112.5em) {@content}
+  }
+}

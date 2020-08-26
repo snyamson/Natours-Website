@@ -8,8 +8,25 @@
 
 html {
   font-size: 62.5%;
+
+  @include respond(tab-landscape) {
+    font-size: 56.25%; // 9px
+  }
+
+  @include respond(tab-potrait) {
+    font-size: 50%; // 8px
+  }
+
+  @include respond(large-desktop) {
+    font-size: 75%; // 12px
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-potrait) {
+    padding: 0;
+  }
 }
